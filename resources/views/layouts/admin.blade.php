@@ -37,6 +37,9 @@
                             <a class="nav-link" href="{{ route('admin.posts.index') }}" class="nav-link">Your posts</a>
                         </li>
                         <li class="nav-item">
+                            <a class="nav-link" href="{{ route('admin.posts.create') }}" class="nav-link">New post</a>
+                        </li>
+                        <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}" class="nav-link">Home</a>
                         </li>
                     </ul>
