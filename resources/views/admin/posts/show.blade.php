@@ -24,7 +24,7 @@
                 <td>{{ $post->updated_at }}</td>
                 <td><a class="btn btn-warning" href="{{ route('admin.posts.edit', $post->id) }}" >Edit</a></td>
                 <td>
-                    <form action="POST" action="{{ route('admin.posts.edit', $post->id) }}">
+                    <form method="POST" action="{{ route('admin.posts.edit', $post->id) }}">
                         @csrf
                         @method('delete')
                         <input class="btn btn-danger"type="submit" value="Delete">

@@ -24,7 +24,7 @@
                     <td><a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-success">Show</a></td>
                     <td><a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning">Edit</a></td>
                     <td>
-                        <form action="POST" action="{{ route('admin.posts.edit', $post->id) }}">
+                        <form method="POST" action="{{ route('admin.posts.edit', $post->id) }}">
                             @csrf
                             @method('delete')
                             <input class="btn btn-danger"type="submit" value="Delete">
