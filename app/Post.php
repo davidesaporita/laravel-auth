@@ -15,4 +15,12 @@ class Post extends Model
         'image'
     ];
 
+    /**
+     * Relationships
+     */
+
+    // Post
+    public function user() {
+        return $this->belongsTo('App\User');
+    }
 }
