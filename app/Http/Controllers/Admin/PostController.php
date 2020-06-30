@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+
 use App\Post;
 
 class PostController extends Controller
@@ -46,6 +48,10 @@ class PostController extends Controller
 
         $data['user_id'] = Auth::id();
         $data['slug'] = Str::slug($data['title'], '-');
+
+        if(isset($data['image'])) {
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        }
         
         $newPost = new Post();
         $newPost->fill($data);
@@ -114,7 +120,8 @@ class PostController extends Controller
     {
         return [
             'title' => 'required|max:255', 
-            'body' => 'required'
+            'body' => 'required',
+            'image' => 'image'
         ];
     }
 }
