@@ -98,6 +98,18 @@ class PostController extends Controller
         $data = $request->all();
         
         $data['slug'] = Str::slug($data['title'], '-');
+        
+        if (!empty($post->image) && isset($data['del_image'])) {
+            Storage::disk('public')->delete($post->image);
+        }
+
+        if (!empty($data['image'])) {
+            if(!empty($post->image)) {
+                Storage::disk('public')->delete($post->image);
+            }
+            $data['image'] = Storage::disk('public')->put('images', $data['image']);
+        }
+
         $updated = $post->update($data);
 
         if($updated) {
@@ -120,8 +132,7 @@ class PostController extends Controller
     {
         return [
             'title' => 'required|max:255', 
-            'body' => 'required',
-            'image' => 'image'
+            'body' => 'required'
         ];
     }
 }
