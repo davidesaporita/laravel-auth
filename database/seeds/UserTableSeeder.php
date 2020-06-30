@@ -18,10 +18,16 @@ class UserTableSeeder extends Seeder
 
         for($i = 0; $i < $users; $i++) {
             $newUser = new User();
+            
+            if($i != 0) {
+                $newUser->name = $faker->name;
+                $newUser->email = $faker->email;
+            } else {
+                $newUser->name = 'First User';
+                $newUser->email = 'foo@bar.com';
+            }
 
-            $newUser->name = $faker->name;
-            $newUser->email = $faker->email;
-            $newUser->password = Hash::make('12345678');
+            $newUser->password = Hash::make('123456789');
 
             $newUser->save();
         }
