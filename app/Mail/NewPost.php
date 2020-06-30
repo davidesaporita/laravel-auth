@@ -35,7 +35,7 @@ class NewPost extends Mailable
     {
         return $this->from('larapower@test.com')
                     ->subject($this->post->title)
-                    ->view('mail.newpost')
+                    ->markdown('mail.newpost-md')
                     ->with([
                         'title' => $this->post->title,
                         'slug' => $this->post->slug,
