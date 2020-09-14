@@ -24,7 +24,7 @@
                     <td><a href="{{ route('admin.posts.show', $post->id) }}" class="btn btn-success">Show</a></td>
                     <td><a href="{{ route('admin.posts.edit', $post->id) }}" class="btn btn-warning">Edit</a></td>
                     <td>
-                        <form method="POST" action="{{ route('admin.posts.edit', $post->id) }}">
+                        <form method="POST" action="{{ route('admin.posts.destroy', $post->id) }}">
                             @csrf
                             @method('delete')
                             <input class="btn btn-danger"type="submit" value="Delete">
@@ -36,7 +36,7 @@
     </table>
 
     <div class="wrap-pagination mt-5 d-flex justify-content-end">
-        {{  $posts->links() }}
+        {{ $posts->links() }}
     </div>
 
 </div>
