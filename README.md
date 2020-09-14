@@ -58,9 +58,3 @@ php artisan migrate --seed
 php artisan serve
 npm run watch
 ```
-
-## :page_facing_up: License
-
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-
-Copyright 2020 © Davide Saporita
